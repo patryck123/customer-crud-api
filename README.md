@@ -1,63 +1,49 @@
-# Customer CRUD API
+# 👥 Customer CRUD API
 
-API RESTful completa para cadastro e gerenciamento de clientes, com **Spring Boot**, **MySQL** e arquitetura em camadas.
+API RESTful para cadastro e gerenciamento completo de clientes.
 
-## Tecnologias
+## 📋 Sobre o Projeto
 
-- Java 17
-- Spring Boot 3.2
-- Spring Data JPA / Hibernate
-- MySQL 8
-- Bean Validation
-- Maven
-- Docker / Docker Compose
-- Swagger / OpenAPI 3
+Projeto ideal para aprender os fundamentos do desenvolvimento back-end com Spring Boot. Implementa as 4 operações básicas de um sistema (CRUD), com arquitetura em camadas, tratamento de erros personalizado e validação de dados.
 
-## Funcionalidades
+## ✨ Funcionalidades
 
-- CRUD completo: criar, listar, buscar, atualizar e remover clientes
-- Busca por nome (case-insensitive)
-- Soft delete (desativação sem remover do banco)
-- Validação de e-mail único por cliente
-- Tratamento centralizado de exceções com HTTP status corretos
-- Documentação automática com Swagger UI
+- ✅ Cadastrar cliente (nome, e-mail, CPF, telefone, endereço)
+- ✅ Listar todos os clientes
+- ✅ Buscar cliente por ID
+- ✅ Buscar cliente por e-mail
+- ✅ Atualizar dados do cliente
+- ✅ Excluir cliente
+- ✅ Validação de campos obrigatórios
+- ✅ Tratamento de exceções personalizado
+- ✅ Resposta de erro com mensagem clara
 
-## Como Executar
-
-### Com Docker
-
-```bash
-docker-compose up --build
-```
-
-Acesse: http://localhost:8082/swagger-ui.html
-
-## Endpoints
+## 🔗 Endpoints
 
 | Método | Rota | Descrição |
 |--------|------|-----------|
-| POST | `/api/customers` | Cadastrar cliente |
-| GET | `/api/customers` | Listar todos |
+| GET | `/api/customers` | Listar todos os clientes |
 | GET | `/api/customers/{id}` | Buscar por ID |
-| GET | `/api/customers/search?name=` | Buscar por nome |
+| GET | `/api/customers/email/{email}` | Buscar por e-mail |
+| POST | `/api/customers` | Cadastrar novo cliente |
 | PUT | `/api/customers/{id}` | Atualizar cliente |
-| PATCH | `/api/customers/{id}/deactivate` | Desativar cliente |
-| DELETE | `/api/customers/{id}` | Remover permanentemente |
+| DELETE | `/api/customers/{id}` | Excluir cliente |
 
-## Estrutura
+## 🛠️ Tecnologias
 
+- Java 17
+- Spring Boot 3.2
+- Spring MVC
+- Spring Data JPA
+- MySQL
+- Maven
+- Docker & Docker Compose
+- Lombok
+- Bean Validation
+
+## ▶️ Como Executar
+
+```bash
+docker-compose up -d
+./mvnw spring-boot:run
 ```
-src/main/java/com/patryck/customers/
-├── controller/   # CustomerController
-├── service/      # CustomerService
-├── repository/   # CustomerRepository
-├── entity/       # Customer
-├── dto/          # Request e Response DTOs
-└── exception/    # CustomerNotFoundException, GlobalExceptionHandler
-```
-
-## Autor
-
-**Patryck Martins Langsdorff** — Desenvolvedor Java Back End Junior
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-patryck--martins--langsdorff-blue)](https://www.linkedin.com/in/patryck-martins-langsdorff)
